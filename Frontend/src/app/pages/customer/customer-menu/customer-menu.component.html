@@ -1,0 +1,10 @@
+<nav>
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <div class="nav-item" *ngFor="let tab of tabList">
+            <a class="nav-link" data-toggle="tab" role="tab" aria-selected="true"
+                (click)="openTab(tab)">{{tab.title}}</a>
+        </div>
+    </div>
+</nav>
+
+<router-outlet></router-outlet>

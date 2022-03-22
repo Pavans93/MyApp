@@ -1,0 +1,209 @@
+.form-group {
+    position: relative;
+    height: 3.4rem;
+    margin-top: 25px;
+}
+
+.form-label {
+    position: absolute;
+    left: 0.6rem;
+    font-size: 14px;
+    top: 0.8rem;
+    padding: 0 0.5rem;
+    color: #000;
+    cursor: text;
+    transition: top 200ms ease-in, left 200ms ease-in, font-size 200ms ease-in;
+    background-color: #fff;
+}
+
+.form-control {
+    line-height: 2.0rem !important;
+}
+
+.form-control:focus~.form-label,
+.form-control:not(:placeholder-shown).form-control:not(:focus)~.form-label {
+    top: -0.7rem;
+    font-size: 12px;
+    left: 0.8rem;
+    box-shadow: #000;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: rgb(29, 5, 250);
+    box-shadow: none !important;
+}
+
+input[type="text"], input[type="password"]{
+    padding: 6px 10px 7px 38px;
+}
+
+i.fas {
+    position: absolute;
+    left: 7px;
+    top: 12px;
+    font-size: 12px;
+    border-right: 1px solid;
+    padding: 6px 10px 6px 6px;
+    color: #616060ee;
+}
+
+label {
+    left: 2rem !important;
+}
+
+a {
+    text-decoration: none;
+    font-size: 14px;
+}
+
+a:hover {
+    color: #0058FF;
+    pointer-events: cursor;
+}
+
+input.ng-invalid.ng-touched {
+    border: 1px solid #dc3545;
+    transition: color 0.25s;
+}
+
+.invalid-feedback.ng-star-inserted {
+    font-size: 12px;
+}
+
+.error-message {
+    color: #dc3545;
+    position: absolute;
+    font-size: 12px;
+}
+
+.divider:after,
+.divider:before {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #eee;
+}
+
+.h-custom {
+    height: calc(100% - 73px);
+}
+
+@media (max-width: 450px) {
+    .h-custom {
+        height: 100%;
+    }
+}
+
+// /*Captcha classes - Start*/
+.wrapper .captcha-area {
+    display: flex;
+    height: 65px;
+    margin: 30px 0 20px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.captcha-area .captcha-img {
+    height: 100%;
+    width: 100%;
+    user-select: none;
+    background: #000;
+    border-radius: 5px;
+    position: relative;
+}
+
+.captcha-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+    opacity: 0.95;
+}
+
+.captcha-img .captcha {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 100%;
+    color: #fff;
+    font-size: 35px;
+    text-align: center;
+    letter-spacing: 10px;
+    transform: translate(-50%, -50%);
+    text-shadow: 0px 0px 2px #b1b1b1;
+    font-family: 'Noto Serif', serif;
+}
+
+.wrapper button {
+    outline: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    background: #0058FF;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.wrapper button:hover {
+    background: #7E84A3;
+}
+
+.captcha-area .reload-btn {
+    width: auto;
+    height: unset;
+    font-size: 10px;
+    margin-left: 5px;
+    padding: 7px 9px 5px 8px;
+}
+
+.captcha-area .reload-btn i {
+    transition: transform 0.3s ease;
+}
+
+.captcha-area .reload-btn:hover i {
+    transform: rotate(45deg);
+}
+
+.wrapper .status-text {
+    display: none;
+    font-size: 18px;
+    text-align: center;
+    margin: 20px 0 -5px;
+}
+
+@media (max-width: 506px) {
+
+    .wrapper header {
+        font-size: 25px;
+    }
+
+    .wrapper .captcha-area {
+        height: 60px;
+    }
+
+    .captcha-area .captcha {
+        font-size: 28px;
+        letter-spacing: 5px;
+    }
+
+    .captcha-area .reload-btn {
+        width: 60px;
+        margin-left: 5px;
+        font-size: 20px;
+    }
+
+    .wrapper .input-area {
+        height: 55px;
+    }
+
+    .input-area .check-btn {
+        height: 40px;
+    }
+
+    .wrapper .status-text {
+        font-size: 15px;
+    }
+}
+
+// /*Captcha classes - End*/

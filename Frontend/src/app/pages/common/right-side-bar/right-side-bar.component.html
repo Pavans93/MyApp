@@ -1,0 +1,34 @@
+<div class="right-bar" id="rightBar" *ngIf="!toggleRightBar">
+	<a class="openbtn" (click)="toggleRightNav()">
+		<i class="bi bi-exclamation-circle"></i>
+		<i class="fas fa-info-circle"></i>
+	</a>
+</div>
+
+<div id="mySidebar" *ngIf="toggleRightBar">
+	<div class="slider-close">
+		<h5 class="card-title">THINK360
+			<a class="closebtn" (click)="toggleRightNav()">
+				<i class="fas fa-times"></i>
+			</a>
+		</h5>
+		<hr class="line-cent" />
+	</div>
+
+	<p class="dark-text">
+		Through THINK360 you can integrate, deliver, and manage scholarly and professional content
+		from a single platform. It provides flexible order management for subscriptions and products. Sophisticated
+		renewal feature allowing users to renew by themself through self-serve. Easy bundling to allow the end
+		customer to mix and match the component they want.
+	</p>
+	<h5 class="card-title">Administrative User</h5>
+	<p class="dark-text">
+		Through administrator account, customer/tenant can edit various configurational parameters,
+		modify system policies as per their needs and also create user accounts as per their granted license.
+	</p>
+	<hr />
+	<h5 class="card-title">Learn More</h5>
+	<p class="dark-text">
+		<a class="blue-link">Working with THINK360</a><br />
+	</p>
+</div>

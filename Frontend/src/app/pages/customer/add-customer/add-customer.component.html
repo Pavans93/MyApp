@@ -1,0 +1,10 @@
+<button class="btn btn-primary" (click)="openModalWithComponent()">Open Modal Popup</button> &nbsp;
+<button class="btn btn-info" (click)="showLoader()">Show Loader</button> &nbsp;
+<button class="btn btn-success" (click)="showSuccessAlert()">Show Success Alert</button> &nbsp;
+<button class="btn btn-danger" (click)="showDangerAlert()">Show Danger Alert</button> &nbsp;
+
+<app-custom-modal [basicSetting]="customerAddressSetting" [template]="customerAddressTemplate">
+</app-custom-modal>
+<ng-template #customerAddressTemplate>
+    <app-search-customer></app-search-customer>
+</ng-template>

@@ -1,0 +1,30 @@
+<div class="row">
+    <div class="col-12">
+        <app-header [toggleLeftEvent]="toggleLeftNav"></app-header>
+    </div>
+</div>
+<div class="row">
+    <!-- <div class="transition mp-0" [ngClass]="toggleLeftBar ? 'col-2 sadow-box' : 'col-1 sadow-box small'">
+        <app-left-nav-bar [toggleLeftBar]="toggleLeftBar"></app-left-nav-bar>
+    </div> -->
+
+    <div [ngClass]="toggleLeftBar ? 'col-2' : 'col-1'">
+        <app-left-nav-bar [toggleLeftBar]="toggleLeftBar"></app-left-nav-bar>
+    </div>
+
+    <div class="col mr-2">
+        <app-alert-message></app-alert-message>
+        <router-outlet></router-outlet>
+    </div>
+
+    <!-- <div class="transition" [ngClass]="toggleRightBar ? 'col-2' : 'col-1 col-right-width ml-2'">
+        <app-right-side-bar [toggleRightEvent]="toggleRightNav" [toggleRightBar]="toggleRightBar">
+        </app-right-side-bar>
+    </div> -->
+
+</div>
+<div class="row">
+    <div class="col-12">
+        <app-footer></app-footer>
+    </div>
+</div>

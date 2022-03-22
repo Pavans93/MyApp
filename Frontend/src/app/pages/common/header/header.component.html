@@ -1,0 +1,63 @@
+<div class="wrapper">
+    <header>
+        <div class="row">
+            <div class="col-md-2">
+                <app-logo></app-logo>
+                <button type="button" id="sidebarCollapse" class="btn btn-tog tog-btn-a">
+                    <i class="fas fa-align-left" (click)="toggleLeftNav()"></i>
+                </button>
+            </div>
+
+            <div class="col-md-4 pt-1">
+                <div class="inputWithIcon">
+                    <input type="text" placeholder="Search">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                </div>
+            </div>
+
+            <div class="col-md-3 pt-1">
+                <a href="#" class="btn-top">Search</a>
+            </div>
+
+            <div class="col-md-3 float-end text-end">
+                <a [routerLink]="['user/attribution']" class="icon-link">
+                    <i class="fab fa-uncharted font-16"></i>
+                </a>
+
+                <div class="btn-group">
+                    <a id="drop2" class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown"
+                        data-bs-auto-close="true" aria-expanded="false">
+                        <i class="fa fa-bell-o notification-bell" aria-hidden="true"></i>
+                        <span class="btn__badge pulse-button">4</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item">Notification 1</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item">Notification 2</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item">Notification 3</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item">Notification 4</a>
+                    </div>
+                </div>
+
+                <div class="btn-group">
+                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="adminDropdown"
+                        data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+                        Administrator
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item" [routerLink]="['user/profile']">Profile</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item">Support</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item">User Manual</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" (click)="onLogout()">Logout</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </header>
+</div>

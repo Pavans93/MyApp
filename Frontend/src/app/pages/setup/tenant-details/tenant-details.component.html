@@ -1,0 +1,248 @@
+<form [formGroup]="tenantForm" (ngSubmit)="onSave()">
+    <div class="flex-container-1 mr-3">
+        <h5 class="card-title mb-2 mt-2 mar-left-10" style="width: 100%;">Tenants Info
+            <button type="submit" class="btn btn-primary mar-left-10 float-right mar-r-10">Save</button>
+            <button type="button" class="btn btn-primary float-right">Cancel</button>
+        </h5>
+    </div>
+    <div class="flex-container-1 mr-3">
+        <div class="col-md-6 p-0">
+            <div class="card-body sadow">
+                <div class="row">
+                    <div class="col col-md-8 form-group">
+                        <label>Name</label>
+                        <input type="text" class="form-control" formControlName="name"
+                            [ngClass]="{'border-danger': (submitted && f['name'].errors)}">
+                        <div *ngIf="(submitted || f['name'].touched) && f['name'].errors" class="error-message">
+                            <div *ngIf="f['name'].errors && f['name'].errors['required']">Name is required</div>
+                        </div>
+                    </div>
+                    <div class="col col-md-4 form-group">
+                        <label>Abbreviation</label>
+                        <input type="text" class="form-control" formControlName="abbreviation"
+                            [ngClass]="{'border-danger': (submitted && f['abbreviation'].errors)}">
+                        <div *ngIf="(submitted || f['abbreviation'].touched) && f['name'].errors" class="error-message">
+                            <div *ngIf="f['abbreviation'].errors && f['abbreviation'].errors['required']">
+                                Abbreviation is required</div>
+                        </div>
+                    </div>
+                </div>
+                <hr class="mt-3">
+                <div class="row">
+                    <div class="col form-group">
+                        <label>Official Address</label>
+                        <textarea class="form-control" rows="3" formControlName="address"
+                            [ngClass]="{'border-danger': (submitted && f['address'].errors)}"></textarea>
+                        <div *ngIf="(submitted || f['address'].touched) && f['name'].errors" class="error-message">
+                            <div *ngIf="f['address'].errors && f['address'].errors['required']">Address is required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2 form-group">
+                        <label>Zip Code</label>
+                        <input type="text" class="form-control" formControlName="zipcode"
+                            [ngClass]="{'border-danger': (submitted && f['zipcode'].errors)}">
+                        <div *ngIf="(submitted || f['zipcode'].touched) && f['name'].errors" class="error-message">
+                            <div *ngIf="f['zipcode'].errors && f['zipcode'].errors['required']">Zipcode is required
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col form-group">
+                        <label>City</label>
+                        <input type="text" class="form-control" formControlName="city"
+                            [ngClass]="{'border-danger': (submitted && f['city'].errors)}">
+                        <div *ngIf="(submitted || f['city'].touched) && f['city'].errors" class="error-message">
+                            <div *ngIf="f['city'].errors && f['city'].errors['required']">City is required</div>
+                        </div>
+                    </div>
+                    <div class="col form-group">
+                        <label>Country</label>
+                        <input type="email" class="form-control" formControlName="country"
+                            [ngClass]="{'border-danger': (submitted && f['country'].errors)}">
+                        <div *ngIf="(submitted || f['country'].touched) && f['country'].errors" class="error-message">
+                            <div *ngIf="f['country'].errors && f['country'].errors['required']">Country is required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr class="mt-3">
+                <div class="row">
+                    <div class="col form-group">
+                        <label>Mobile</label>
+                        <input type="text" class="form-control" formControlName="mobile"
+                            [ngClass]="{'border-danger': (submitted && f['mobile'].errors)}">
+                        <div *ngIf="(submitted || f['mobile'].touched) && f['mobile'].errors" class="error-message">
+                            <div *ngIf="f['mobile'].errors && f['mobile'].errors['required']">Mobile Number is
+                                required</div>
+                        </div>
+                    </div>
+                    <div class="col form-group">
+                        <label>Contact E-mail</label>
+                        <input type="email" class="form-control" formControlName="email"
+                            [ngClass]="{'border-danger': (submitted && f['email'].errors)}">
+                        <div *ngIf="(submitted || f['email'].touched) && f['name'].errors" class="error-message">
+                            <div *ngIf="f['email'].errors && f['email'].errors['required']">Contact E-mail is
+                                required</div>
+                        </div>
+                    </div>
+                </div>
+                <hr class="mt-3">
+                <h5 class="card-title mar-top-15">Domains</h5>
+                <div class="row mb-4">
+                    <div class="col">
+                        <label>Domains</label>
+                        <ng-select [items]="[]" [addTag]="true" [multiple]="true" [selectOnTab]="true" [isOpen]="false"
+                            formControlName="domain" [ngClass]="{'border-danger': (submitted && f['domain'].errors)}">
+                        </ng-select>
+                        <div *ngIf="(submitted || f['domain'].touched) && f['domain'].errors" class="error-message">
+                            <div *ngIf="f['domain'].errors && f['domain'].errors['required']">Domain is required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr class="mt-3">
+                <div class="row">
+                    <h5 class="card-title mb-1 mt-1">Database</h5>
+                    <div formGroupName="database">
+                        <div class="row mt-3">
+                            <div class="col form-group">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="myCheck"
+                                        formControlName="default" (change)="onChangeOfDefault()">
+                                    <label class="form-check-label chk-m-p" for="myCheck">Default</label>
+                                </div>
+                            </div>
+                            <div formGroupName="details">
+                                <div class="col form-group">
+                                    <label>URL</label>
+                                    <input type="url" class="form-control" id="databaseurl" formControlName="url"
+                                        [ngClass]="{'border-danger': (submitted && f['database']['controls']['details']['controls']['url'].errors)}">
+                                    <div *ngIf="(submitted || f['database']['controls']['details']['controls']['url'].touched) && f['database']['controls']['details']['controls']['url'].errors"
+                                        class="error-message">
+                                        <div
+                                            *ngIf="f['database']['controls']['details']['controls']['url'].errors && f['database']['controls']['details']['controls']['url'].errors['required']">
+                                            URL is required
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div formGroupName="details">
+                                <div class="col form-group">
+                                    <label>Username</label>
+                                    <input type="text" id="databaseusername" class="form-control"
+                                        formControlName="username"
+                                        [ngClass]="{'border-danger': (submitted && f['database']['controls']['details']['controls']['username'].errors)}">
+                                    <div *ngIf="(submitted || f['database']['controls']['details']['controls']['username'].touched) && f['database']['controls']['details']['controls']['username'].errors"
+                                        class="error-message">
+                                        <div
+                                            *ngIf="f['database']['controls']['details']['controls']['username'].errors && f['database']['controls']['details']['controls']['username'].errors['required']">
+                                            Username is required</div>
+                                    </div>
+                                </div>
+                                <div class="col form-group">
+                                    <label>Password</label>
+                                    <input type="password" class="form-control" id="databasepass"
+                                        formControlName="password"
+                                        [ngClass]="{'border-danger': (submitted && f['database']['controls']['details']['controls']['password'].errors)}">
+                                    <div *ngIf="(submitted || f['database']['controls']['details']['controls']['password'].touched) && f['database']['controls']['details']['controls']['password'].errors"
+                                        class="error-message">
+                                        <div
+                                            *ngIf="f['database']['controls']['details']['controls']['password'].errors && f['database']['controls']['details']['controls']['password'].errors['required']">
+                                            Password is required</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 pl-pr-10">
+            <!-- <div class="error"> -->
+            <span [ngClass]="{ 'is-invalid': submitted }"></span>
+            <div *ngIf="submitted" class="invalid-feedback">
+                <!-- <i class="fas fa-exclamation-triangle"></i>
+                {{errorMessage}} -->
+            </div>
+            <!-- </div> -->
+            <div class="card-body sadow">
+                <h5 class="card-title">Upload Package</h5>
+                <p class="card-text dark-text">Tenant Configuration Package file containing JSON and other files</p>
+                <div class="file-upload">
+                    <div class="image-upload-wrap">
+                        <input class="file-upload-input" type="file" (change)="uploadFile($event)" accept=".zip" />
+                        <div class="drag-text">
+                            <h3><button type="submit" class="btn btn-primary mb-3">Upload</button></h3>
+                        </div>
+                    </div>
+                    <div class="file-upload-content">
+                        <img class="file-upload-image" src="#" alt="your image" />
+                        <div class="image-title-wrap">
+                            <button type="button" class="remove-image">Remove
+                                <span class="image-title">Uploaded Image</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <hr class="mt-3">
+
+                <h5 class="card-title mt-4">License Detail</h5>
+                <div class="col bg-light p-3">
+                    <p class="ml-3">Royal Melbourne Institute of Technology<br />
+                        Melbourne, Australia<br />
+                        ASLJ-1863-NSDL-1710<br />
+                        January 1, 2022 to December 31, 2022</p>
+                </div>
+
+                <div class="row">
+                    <div class="row mt-3">
+                        <div class="col form-group">
+                            <div class="col form-group">
+                                <label class="">Upload License File </label>
+                                <input class="width-50 bor-0">
+                            </div>
+                        </div>
+                        <div class="col form-group mt-4">
+                            <input type="file" class="form-control-file bor-0  mar-t_16" id="exampleFormControlFile1">
+                        </div>
+                    </div>
+                </div>
+                <hr class="mt-3">
+                <h5 class="card-title">Logos</h5>
+                <div class="row">
+                    <div class="row mt-3">
+                        <div class="col form-group">
+                            <div class="col form-group">
+                                <label>Logo with description</label>
+                                <input type="image" src="../../../../assets/img/think-logo.svg" class="width-50 bor-0"
+                                    alt="logo">
+                            </div>
+                        </div>
+                        <div class="col form-group mt-4">
+                            <input type="file" class="form-control-file bor-0" id="exampleFormControlFile2">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col form-group">
+                            <label>Logo icon</label>
+                            <input type="image" src="../../../../assets/img/Think-icon.svg" class="width-25 bor-0"
+                                alt="logo">
+                        </div>
+                        <div class="col form-group mt-4">
+                            <input type="file" class="form-control-file bor-0" id="exampleFormControlFile3">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</form>

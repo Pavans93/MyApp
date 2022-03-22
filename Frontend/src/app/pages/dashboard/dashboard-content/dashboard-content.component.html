@@ -1,0 +1,93 @@
+<div id="content">
+    <div class="card-body">
+        <h5 class="card-title">Welcome Administrator</h5>
+        <p class="card-text dark-text">
+            THINK360 is an End-to-end, cloud-based integrated platform suite to enhance your
+            overall content management and delivery experience.
+        </p>
+    </div>
+
+    <div class="row" style="margin: auto;">
+        <div class="col-md-3 mb-2">
+            <div class="card light-blue">
+                <div class="card-body">
+                    <h5 class="card-title white-text">7</h5>
+                    <p class="card-text white-text">Tenants
+                        <i class="far fa-user big-icon"></i>
+                    </p>
+                </div>
+                <div class="card-footer light-blue-footer line-hight-cent">
+                    <small class="small-text white-text">
+                        <a [routerLink]="['/routePath']" class="white-link">More Info
+                            <i class="fas fa-chevron-circle-right"></i>
+                        </a>
+                    </small>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-2">
+            <div class="card light-green">
+                <div class="card-body">
+                    <h5 class="card-title white-text">7650</h5>
+                    <p class="card-text white-text">Inventory
+                        <i class="fas fa-warehouse big-icon"></i>
+                    </p>
+                </div>
+                <div class="card-footer light-green-footer line-hight-cent">
+                    <small class="white-text small-text">
+                        <a [routerLink]="['/routePath']" class="white-link">More Info
+                            <i class="fas fa-chevron-circle-right"></i>
+                        </a>
+                    </small>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-2">
+            <div class="card light-orange">
+                <div class="card-body">
+                    <h5 class="card-title white-text">3137</h5>
+                    <p class="card-text white-text">Sales
+                        <i class="fas fa-chart-pie big-icon"></i>
+                    </p>
+                </div>
+                <div class="card-footer light-orange-footer line-hight-cent">
+                    <small class="white-text small-text">
+                        <a [routerLink]="['/routePath']" class="white-link">More Info
+                            <i class="fas fa-chevron-circle-right"></i>
+                        </a>
+                    </small>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-2">
+            <div class="card light-red">
+                <div class="card-body light-red">
+                    <h5 class="card-title white-text">780</h5>
+                    <p class="card-text white-text">Subscription Rate
+                        <i class="fas fa-envelope-open-text big-icon"></i>
+                    </p>
+                </div>
+                <div class="card-footer light-red-footer line-hight-cent">
+                    <small class="white-text small-text">
+                        <a [routerLink]="['/routePath']" class="white-link">More Info
+                            <i class="fas fa-chevron-circle-right"></i>
+                        </a>
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col-md-9 sadow">
+        </div>
+
+        <div class="col-md-3 sadow">
+            <div class="card-body">
+                <h5 class="card-title">Sales Breakdown</h5>
+                <p class="card-text">All sales data with.</p>
+                <app-charts [chartData]="chartData"></app-charts>
+            </div>
+        </div>
+    </div>
+</div>
