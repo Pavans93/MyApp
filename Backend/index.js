@@ -11,20 +11,20 @@ dotenv.config();
 
 const authRoute = require('./routes/auth');
 
-const PORT = process.env.PORT || 5000; 
+const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
-  console.log(`App listening on port : ${PORT}`);
+    console.log(`App listening on port : ${PORT}`);
 });
 
 const DB = 'mongodb+srv://pavan:pavan@myappcluster.euvys.mongodb.net/MyApp?retryWrites=true&w=majority'
 
 mongoose.connect(DB, {
-  useNewUrlParser: true,
+    useNewUrlParser: true,
 }).then(() => {
-  console.log('MongoDB connected successfully...');
+    console.log('MongoDB connected successfully...');
 }).catch((err) => {
-  console.log(`Failed to connect to MongoDB ${err}`);
+    console.log(`Failed to connect to MongoDB ${err}`);
 })
 
 //cors for exchange data b/w 4200 and 3000 - two different ports
@@ -37,6 +37,3 @@ app.use(bodyParser.json());
 app.use('/api/user', authRoute);
 
 app.use(express.json());
-
-
-

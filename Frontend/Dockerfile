@@ -12,7 +12,7 @@ WORKDIR /usr/share/nginx/html
 
 RUN rm -rf ./*
 
-COPY --from=builder app/dist/think2.0 .
+COPY --from=builder app/dist/frontend .
 
 RUN chown nginx:nginx /usr/share/nginx/html/*
 
