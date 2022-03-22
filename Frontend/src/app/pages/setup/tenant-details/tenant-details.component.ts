@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { FileUploadService } from '../../../core/shared/service/file-upload.service';
+// import { FileUploadService } from '../../../core/shared/service/file-upload.service';
 
 @Component({
     selector: 'app-tenant-details',
@@ -19,7 +19,7 @@ export class TenantDetailsComponent implements OnInit {
 
     constructor(
         private formBuilder: FormBuilder,
-        private fileUploadService: FileUploadService
+        // private fileUploadService: FileUploadService
     ) { }
 
     ngOnInit() {
@@ -54,32 +54,32 @@ export class TenantDetailsComponent implements OnInit {
     }
 
     onChangeOfDefault() {
-        const isChecked = this.tenantForm.controls['database']['controls']['default'].value;
-        if (isChecked) {
-            this.f['database']['controls']['details']['controls']['url'].disable();
-            this.f['database']['controls']['details']['controls']['username'].disable();
-            this.f['database']['controls']['details']['controls']['password'].disable();
+        // const isChecked = this.tenantForm.controls['database']['controls']['default'].value;
+        // if (isChecked) {
+        //     this.f['database']['controls']['details']['controls']['url'].disable();
+        //     this.f['database']['controls']['details']['controls']['username'].disable();
+        //     this.f['database']['controls']['details']['controls']['password'].disable();
 
-            this.f['database']['controls']['details']['controls']['url'].patchValue(null);
-            this.f['database']['controls']['details']['controls']['username'].patchValue(null);
-            this.f['database']['controls']['details']['controls']['password'].patchValue(null);
-        } else {
-            this.f['database']['controls']['details']['controls']['url'].enable();
-            this.f['database']['controls']['details']['controls']['username'].enable();
-            this.f['database']['controls']['details']['controls']['password'].enable();
-        }
+        //     this.f['database']['controls']['details']['controls']['url'].patchValue(null);
+        //     this.f['database']['controls']['details']['controls']['username'].patchValue(null);
+        //     this.f['database']['controls']['details']['controls']['password'].patchValue(null);
+        // } else {
+        //     this.f['database']['controls']['details']['controls']['url'].enable();
+        //     this.f['database']['controls']['details']['controls']['username'].enable();
+        //     this.f['database']['controls']['details']['controls']['password'].enable();
+        // }
     }
 
     uploadFile(event: any) {
-        this.fileUploadService.populateDataFromFile(event, this.tenantForm)
+        // this.fileUploadService.populateDataFromFile(event, this.tenantForm)
 
-        setTimeout(() => {
-            if (!this.tenantForm.controls['database']['controls']['default'].value) {
-                this.f['database']['controls']['details']['controls']['url'].enable();
-                this.f['database']['controls']['details']['controls']['username'].enable();
-                this.f['database']['controls']['details']['controls']['password'].enable();
-            }
-        }, 100);
+        // setTimeout(() => {
+        //     if (!this.tenantForm.controls['database']['controls']['default'].value) {
+        //         this.f['database']['controls']['details']['controls']['url'].enable();
+        //         this.f['database']['controls']['details']['controls']['username'].enable();
+        //         this.f['database']['controls']['details']['controls']['password'].enable();
+        //     }
+        // }, 100);
     }
 
     formReset() {

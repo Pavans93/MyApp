@@ -1,5 +1,5 @@
 export const environment = {
     production: true,
-    SERVER_URL: 'http://localhost:5000',
-    VERSION: '2.0.0'
+    SERVER_URL: 'http://localhost:3000',
+    VERSION: '1.0.0'
 };

@@ -1,7 +1,7 @@
 export const environment = {
     production: false,
-    SERVER_URL: 'http://localhost:5000',
-    VERSION: '2.0.0'
+    SERVER_URL: 'http://localhost:3000',
+    VERSION: '1.0.0'
 };
 
 // This file can be replaced during build by using the `fileReplacements` array in `angular.json`.
