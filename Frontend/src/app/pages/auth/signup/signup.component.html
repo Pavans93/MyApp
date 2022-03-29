@@ -70,10 +70,10 @@
                             <div *ngIf="f['phoneNumber'].errors && f['phoneNumber'].errors['invalid']">
                                 * Please enter valid phone number
                             </div>
-                            <div *ngIf="f['phoneNumber'].errors && (f['phoneNumber'].errors['minlength'])">
+                            <div *ngIf="f['phoneNumber'].errors && !f['phoneNumber'].errors['invalid'] && (f['phoneNumber'].errors['minlength'])">
                                 * Phone number should be of minimum 10 digits
                             </div>
-                            <div *ngIf="f['phoneNumber'].errors && (f['phoneNumber'].errors['maxlength'])">
+                            <div *ngIf="f['phoneNumber'].errors  && !f['phoneNumber'].errors['invalid'] && (f['phoneNumber'].errors['maxlength'])">
                                 * Phone number should be of maximum 10 digits
                             </div>
                         </div>
