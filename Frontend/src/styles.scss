@@ -1029,3 +1029,46 @@
 //     margin-right: 5px;
 // }
   
+
+//classes for sweet alert customization
+.alertPopup {
+    background: grey !important;
+}
+
+.alertSuccessTitle {
+    color: lawngreen !important;
+}
+
+.alertErrorTitle {
+    color: red !important;
+}
+
+.alertText {
+    color: white !important;
+}
+
+.alertSuccessBtn{
+    border-radius: 2rem!important;
+    width: 7rem !important;
+    font-weight: 700 !important;
+    background-color: limegreen !important;
+}
+
+.alertErrorBtn{
+    border-radius: 2rem!important;
+    width: 7rem !important;
+    font-weight: 700 !important;
+    background-color: red !important;
+}
+
+.swal2-icon.swal2-success [class^=swal2-success-line] {
+    background-color: lawngreen !important;
+}
+
+.swal2-close:hover {
+    color: darkgrey !important;
+}
+
+.swal2-styled.swal2-confirm:focus {
+    box-shadow: none !important;
+}

@@ -33,6 +33,8 @@
                         "styles": [
                             "node_modules/bootstrap/dist/css/bootstrap.min.css",
                             "node_modules/c3/c3.min.css",
+                            "node_modules/ngx-toastr/toastr.css",
+                            "node_modules/sweetalert2/src/sweetalert2.scss",
                             "src/styles.scss"
                         ],
                         "scripts": [
@@ -106,6 +108,8 @@
                         "styles": [
                             "node_modules/bootstrap/dist/css/bootstrap.min.css",
                             "node_modules/c3/c3.min.css",
+                            "node_modules/ngx-toastr/toastr.css",
+                            "node_modules/sweetalert2/src/sweetalert2.scss",
                             "src/styles.scss"
                         ],
                         "scripts": [

@@ -5,8 +5,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { GlobalConstants } from '../../../core/shared/constants/global.constants';
 import { HttpService } from '../../../core/shared/http/http.service';
 import { RedirectService } from '../../../core/shared/service/redirect.service';
-
+import { AlertService } from '../../../core/shared/service/alert.service';
 import { AuthService } from '../../../core/service/auth.service';
+import { LoaderService } from '../../../core/shared/service/loader.service';
+
 import { FacebookLoginProvider, GoogleLoginProvider, SocialAuthService } from 'angularx-social-login';
 
 import CustomValidator from '../../../core/shared/validators/custom-validators';
@@ -23,10 +25,7 @@ export class LoginComponent implements OnInit {
 
     submitted: boolean;
     redirectUrl: string;
-    errorMessage: string;
-    isError: boolean;
     token: string;
-    registerdUsers: any = [];
 
     constructor(
         private router: Router,
@@ -34,19 +33,21 @@ export class LoginComponent implements OnInit {
         private redirectService: RedirectService,
         private formBuilder: FormBuilder,
         private socialAuthService: SocialAuthService,
-        private authService: AuthService
+        private authService: AuthService,
+        private alertService: AlertService,
+        private loader: LoaderService,
     ) {
         this.initForm();
     }
 
-    ngOnInit(): void {
+    ngOnInit() {
         this.redirectService.setRedirectUrl();
     }
 
-    initForm() {
+    initForm = () => {
         this.submitted = false;
         this.loginForm = this.formBuilder.group({
-            username: ['', [
+            email: ['', [
                 Validators.required,
                 CustomValidator.emailValidator
             ]
@@ -54,10 +55,10 @@ export class LoginComponent implements OnInit {
             password: ['', [
                 Validators.required,
                 Validators.minLength(6),
-                Validators.maxLength(10)
+                Validators.maxLength(20)
             ]
             ],
-            rememberMe: ['']
+            // rememberMe: ['']
         });
     }
 
@@ -65,36 +66,33 @@ export class LoginComponent implements OnInit {
         return this.loginForm.controls;
     }
 
-    onLogin() {
+    onLogin = () => {
         this.submitted = true;
-        this.isError = false;
         if (this.loginForm.invalid) {
             return;
         }
-
-        //  this.httpService.post(GlobalConstants.LOGIN_URL, this.loginForm.value)
-        //   .subscribe((data: any) => {
-        //     if (data['Status'] === 'OK') {
-        //       this.router.navigate(['/two-factor-auth']);
-        //     }
-        //   });
-
-
-        // if (localStorage.getItem('registerdUsers')) {
-        //     this.registerdUsers = JSON.parse(localStorage.getItem('registerdUsers') || '{}');
-        //     let found = this.registerdUsers.some((el: any) => {
-        //         return el.username === this.f['username'].value && el.password === this.f['password'].value;
-        //     });
-        //     if (!found) {
-        //         this.isError = true;
-        //         this.errorMessage = 'Invalid Username/password';
-        //     } else {
-        //         this.router.navigate(['/two-factor-auth']);
-        //     }
-        // }
+        this.loader.showLoader();
+        this.httpService.post(GlobalConstants.USER_LOGIN, this.loginForm.value)
+            .subscribe({
+                next: (res: any) => {
+                    this.loader.hideLoader();
+                    this.token = res.body.data.authToken;
+                    this.redirectUrl = '/dashboard';
+                    this.authService.setRedirectUrl(this.redirectUrl);
+                    this.authService.auth(this.token);
+                },
+                error: (err: any) => {
+                    this.loader.hideLoader();
+                    if (err.error.message) {
+                        this.alertService.toastError(`${err.error.message}`);
+                    } else {
+                        this.alertService.alertError('UH-OH!!!', `Sorry, We are unable to login at this moment...Please try again!!!`, 'OK');
+                    }
+                },
+            });
     }
 
-    socialLogin(provider: any) {
+    socialLogin = (provider: any) => {
         let loginProvider: any;
         if (provider === 'google') {
             loginProvider = GoogleLoginProvider;
@@ -112,11 +110,9 @@ export class LoginComponent implements OnInit {
             );
     }
 
-    resetForm() {
+    resetForm = () => {
         this.submitted = false;
         this.loginForm.reset();
     }
-
-
 
 }

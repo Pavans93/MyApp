@@ -1,1 +1,0 @@
-DB_CONNECT = 'mongodb+srv://pavan:pavan@myappcluster.euvys.mongodb.net/MyApp?retryWrites=true&w=majority';

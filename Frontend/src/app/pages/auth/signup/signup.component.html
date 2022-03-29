@@ -8,20 +8,74 @@
                 <form novalidate [formGroup]="signUpForm" (ngSubmit)="onSignUp()">
 
                     <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-center">
-                        <p class="lead fw-bold mb-0 me-3">Sign up</p>
+                        <p class="lead fw-bold mb-0 me-3">Register</p>
                     </div>
 
                     <div class="form-group form-outline mb-4">
-                        <input type="text" id="username" class="form-control" placeholder=" " formControlName="username"
-                            autocomplete="off" [ngClass]="{'border-danger': (submitted && f['username'].errors)}" />
-                        <label class="form-label" for="username">Username</label>
+                        <input type="text" id="firstName" class="form-control" placeholder=" " formControlName="firstName"
+                            autocomplete="off" [ngClass]="{'border-danger': (submitted && f['firstName'].errors)}" />
+                        <label class="form-label" for="firstName">First Name</label>
                         <i class="fas fa-user"></i>
-                        <div *ngIf="(submitted || f['username'].touched) && f['username'].errors" class="error-message">
-                            <div *ngIf="f['username'].errors && f['username'].errors['required']">
-                                * Username is required
+                        <div *ngIf="(submitted || f['firstName'].touched) && f['firstName'].errors" class="error-message">
+                            <div *ngIf="f['firstName'].errors && f['firstName'].errors['required']">
+                                * First Name is required
                             </div>
-                            <div *ngIf="f['username'].errors && f['username'].errors['invalid']">
-                                * Please enter valid username</div>
+                            <div *ngIf="f['firstName'].errors && (f['firstName'].errors['minlength'])">
+                                * First Name should be of minimum 3 characters
+                            </div>
+                            <div *ngIf="f['firstName'].errors && (f['firstName'].errors['maxlength'])">
+                                * First Name should be of maximum 20 characters
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group form-outline mb-4">
+                        <input type="text" id="lastName" class="form-control" placeholder=" " formControlName="lastName"
+                            autocomplete="off" [ngClass]="{'border-danger': (submitted && f['lastName'].errors)}" />
+                        <label class="form-label" for="lastName">Last Name</label>
+                        <i class="fas fa-user"></i>
+                        <div *ngIf="(submitted || f['lastName'].touched) && f['lastName'].errors" class="error-message">
+                            <div *ngIf="f['lastName'].errors && f['lastName'].errors['required']">
+                                * Last Name is required
+                            </div>
+                            <div *ngIf="f['lastName'].errors && (f['lastName'].errors['maxlength'])">
+                                * Last Name should be of maximum 20 characters
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group form-outline mb-4">
+                        <input type="text" id="email" class="form-control" placeholder=" " formControlName="email"
+                            autocomplete="off" [ngClass]="{'border-danger': (submitted && f['email'].errors)}" />
+                        <label class="form-label" for="email">Email</label>
+                        <i class="fas fa-envelope"></i>
+                        <div *ngIf="(submitted || f['email'].touched) && f['email'].errors" class="error-message">
+                            <div *ngIf="f['email'].errors && f['email'].errors['required']">
+                                * Email is required
+                            </div>
+                            <div *ngIf="f['email'].errors && f['email'].errors['invalid']">
+                                * Please enter valid email</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group form-outline mb-4">
+                        <input type="text" id="phoneNumber" class="form-control" placeholder=" " formControlName="phoneNumber"
+                            autocomplete="off" [ngClass]="{'border-danger': (submitted && f['phoneNumber'].errors)}" />
+                        <label class="form-label" for="phoneNumber">Phone Number</label>
+                        <i class="fas fa-phone"></i>
+                        <div *ngIf="(submitted || f['phoneNumber'].touched) && f['phoneNumber'].errors" class="error-message">
+                            <div *ngIf="f['phoneNumber'].errors && f['phoneNumber'].errors['required']">
+                                * Phone number is required
+                            </div>
+                            <div *ngIf="f['phoneNumber'].errors && f['phoneNumber'].errors['invalid']">
+                                * Please enter valid phone number
+                            </div>
+                            <div *ngIf="f['phoneNumber'].errors && (f['phoneNumber'].errors['minlength'])">
+                                * Phone number should be of minimum 10 digits
+                            </div>
+                            <div *ngIf="f['phoneNumber'].errors && (f['phoneNumber'].errors['maxlength'])">
+                                * Phone number should be of maximum 10 digits
+                            </div>
                         </div>
                     </div>
 
@@ -39,7 +93,7 @@
                                 * Password should be of minimum 6 characters
                             </div>
                             <div *ngIf="f['password'].errors && (f['password'].errors['maxlength'])">
-                                * Password should be of maximum 10 characters
+                                * Password should be of maximum 20 characters
                             </div>
                         </div>
                     </div>
@@ -84,14 +138,6 @@
 
                     <div class="d-grid gap-2 mt-4">
                         <button class="btn btn-primary" type="submit">Signup</button>
-                    </div>
-
-                    <div class="text-center text-lg-center mt-2 pt-2">
-                        <span [ngClass]="{ 'is-invalid': submitted && isError }"></span>
-                        <div *ngIf="submitted && isError" class="invalid-feedback">
-                            <i class="fa fa-exclamation-triangle"></i>
-                            {{errorMessage}}
-                        </div>
                     </div>
 
                     <div class="text-center text-lg-center mt-2 pt-2">

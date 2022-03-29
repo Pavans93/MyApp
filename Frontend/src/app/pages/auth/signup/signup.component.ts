@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { GlobalConstants } from '../../../core/shared/constants/global.constants';
 import { HttpService } from '../../../core/shared/http/http.service';
 
 import { LoaderService } from '../../../core/shared/service/loader.service';
 import { RedirectService } from '../../../core/shared/service/redirect.service';
+import { AlertService } from '../../../core/shared/service/alert.service';
 
 import CustomValidator from '../../../core/shared/validators/custom-validators';
-
 @Component({
     selector: 'app-signup',
     templateUrl: './signup.component.html',
@@ -21,39 +21,55 @@ export class SignupComponent implements OnInit {
     signUpForm: FormGroup;
 
     submitted: boolean;
-
     redirectUrl: string;
-
-    errorMessage: string;
-    isError: boolean = false;
-    registerdUsers: any = [];
 
     constructor(
         private router: Router,
         private httpService: HttpService,
         private loader: LoaderService,
         private redirectService: RedirectService,
-        private formBuilder: FormBuilder
+        private formBuilder: FormBuilder,
+        private alertService: AlertService,
     ) {
         this.initForm();
     }
 
-    ngOnInit(): void {
+    ngOnInit = () => {
         this.redirectService.setRedirectUrl();
     }
 
-    initForm() {
+    initForm = () => {
         this.submitted = false;
         this.signUpForm = this.formBuilder.group({
-            username: ['', [
+            firstName: ['', [
+                Validators.required,
+                Validators.minLength(3),
+                Validators.maxLength(20),
+                CustomValidator.alPhaValidator
+            ]
+            ],
+            lastName: ['', [
+                Validators.required,
+                Validators.maxLength(20),
+                CustomValidator.alPhaValidator
+            ]
+            ],
+            email: ['', [
                 Validators.required,
                 CustomValidator.emailValidator
+            ]
+            ],
+            phoneNumber: ['', [
+                Validators.required,
+                Validators.minLength(10),
+                Validators.maxLength(10),
+                CustomValidator.numbersOnlyValidator
             ]
             ],
             password: ['', [
                 Validators.required,
                 Validators.minLength(6),
-                Validators.maxLength(10)
+                Validators.maxLength(20)
             ]
             ],
             confirmPassword: ['', Validators.required],
@@ -75,35 +91,30 @@ export class SignupComponent implements OnInit {
         return this.signUpForm.controls;
     }
 
-    onSignUp() {
-        debugger
+    onSignUp = () => {
         this.submitted = true;
         if (this.signUpForm.invalid) {
             return;
         }
-
-
-        this.httpService.post(GlobalConstants.REGISTER_URL, this.signUpForm.value)
-        .subscribe((data: any) => {
-         alert('User registerd successfully!!!');
-        });
-
-
-        // this.isError = true;
-        // this.errorMessage = 'Error in signup';
-        // console.log(JSON.stringify(this.signUpForm.value, null, 2));
-        // if(localStorage.getItem('registerdUsers')){
-        //     this.registerdUsers = JSON.parse(localStorage.getItem('registerdUsers') || '{}');
-        //     this.registerdUsers.push(this.signUpForm.value);
-        //     localStorage.setItem('registerdUsers', JSON.stringify(this.registerdUsers));
-        // } else {
-        //     this.registerdUsers.push(this.signUpForm.value);
-        //     localStorage.setItem('registerdUsers', JSON.stringify(this.registerdUsers));
-        // }
-     
+        this.loader.showLoader();
+        this.httpService.post(GlobalConstants.USER_SIGNUP, this.signUpForm.value)
+            .subscribe({
+                next: (res: any) => {
+                    this.loader.hideLoader();
+                    this.alertService.alertSuccess(`Thank you ${res.body.data.firstName}`, 'Congratulations, Your account has been successfully created.', 'Login', 'login');
+                },
+                error: (err: any) => {
+                    this.loader.hideLoader();
+                    if (err.error.message) {
+                        this.alertService.toastError(`${err.error.message}`);
+                    } else {
+                        this.alertService.alertError('UH-OH!!!', `Sorry, We are unable to create your account right now...Please try again!!!`, 'OK');
+                    }
+                },
+            });
     }
 
-    resetForm() {
+    resetForm = () => {
         this.submitted = false;
         this.signUpForm.reset();
     }

@@ -4,6 +4,8 @@ export const EMAIL_REGEX = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*
 
 export const ALPHA_NUMERIC_ONLY = /^([A-Za-z]|[0-9])+$/;
 
+export const ALPHA_ONLY = /^([A-Za-z]|[0-9])+$/;
+
 export const NUMBERS_ONLY = /^([0-9])+$/;
 
 export default class CustomValidator {
@@ -16,6 +18,12 @@ export default class CustomValidator {
 
     static alPhaNumericValidator(control: FormControl): { [s: string]: boolean } | any {
         if (control.value && !control.value.match(ALPHA_NUMERIC_ONLY)) {
+            return { invalid: true };
+        }
+    }
+
+    static alPhaValidator(control: FormControl): { [s: string]: boolean } | any {
+        if (control.value && !control.value.match(ALPHA_ONLY)) {
             return { invalid: true };
         }
     }
@@ -41,4 +49,5 @@ export default class CustomValidator {
             }
         };
     }
+    
 }

@@ -6,6 +6,8 @@ export class GlobalConstants {
 
     public static API_BASE_URL = GlobalConstants.APP_SERVER_URL + '/api/';
 
-    public static REGISTER_URL = GlobalConstants.API_BASE_URL + 'user/register';
+    public static USER_SIGNUP = GlobalConstants.API_BASE_URL + 'user/signup';
+
+    public static USER_LOGIN = GlobalConstants.API_BASE_URL + 'user/login';
 
 }

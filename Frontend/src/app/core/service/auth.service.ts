@@ -22,6 +22,7 @@ export class AuthService {
     }
 
     public auth(token: string): void {
+        debugger
         if (token) {
             if (!this.cookieService.getCookie('authToken')) {
                 this.cookieService.setCookie('authToken', token);

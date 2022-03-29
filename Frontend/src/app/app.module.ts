@@ -13,6 +13,7 @@ import { RetryInterceptorProvider } from './core/shared/http-interceptor/retry/r
 import { appRoutingModule } from './app.routing';
 
 import { NgxSpinnerModule } from "ngx-spinner";
+import { ToastrModule } from 'ngx-toastr';
 
 import { WidgetsModule } from './core/shared/widgets/widgets.module';
 import { WidgetServiceModule } from './core/shared/widgets/widgets-service.module';
@@ -27,7 +28,7 @@ import { LogoComponent } from './pages/common/logo/logo.component';
 import { AlertMessageComponent } from './core/shared/widgets/alert-message/alert-message.component';
 import { AlertMessageService } from './core/shared/widgets/alert-message/alert-message.service';
 import { EncryptDecryptService } from './core/shared/service/encrypt-decrypt.service';
-import { AmazonLoginProvider, FacebookLoginProvider, GoogleLoginProvider, SocialLoginModule } from 'angularx-social-login';
+import { FacebookLoginProvider, GoogleLoginProvider, SocialLoginModule } from 'angularx-social-login';
 
 @NgModule({
     declarations: [
@@ -52,7 +53,13 @@ import { AmazonLoginProvider, FacebookLoginProvider, GoogleLoginProvider, Social
         NgxSpinnerModule,
         WidgetsModule,
         WidgetServiceModule,
-        SocialLoginModule
+        SocialLoginModule,
+        ToastrModule.forRoot({
+            closeButton: true,
+            timeOut: 8000, // 8 seconds
+            progressBar: true,
+            positionClass :'toast-top-right'
+          }),
     ],
 
     providers: [

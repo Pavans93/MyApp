@@ -9,19 +9,19 @@ import { NgxSpinnerService } from 'ngx-spinner';
 
 export class LoaderComponent implements OnInit {
 
-    @Input() show: any;
+    // @Input() show: any;
 
-    constructor(private spinner: NgxSpinnerService) { }
+    // constructor(private spinner: NgxSpinnerService) { }
 
     ngOnInit() {
     }
 
-    ngOnChanges(changes: SimpleChanges) {
-        if (this.show == 'true') {
-            this.spinner.show(undefined, { fullScreen: true });
-        } else {
-            this.spinner.hide();
-        }
-    }
+    // ngOnChanges(changes: SimpleChanges) {
+    //     if (this.show == 'true') {
+    //         this.spinner.show(undefined, { fullScreen: true });
+    //     } else {
+    //         this.spinner.hide();
+    //     }
+    // }
 
 }

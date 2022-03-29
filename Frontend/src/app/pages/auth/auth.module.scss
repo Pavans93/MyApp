@@ -207,3 +207,13 @@ input.ng-invalid.ng-touched {
 }
 
 // /*Captcha classes - End*/
+
+.btn-light {
+    background-color: lightgray;
+    color: #000;
+}
+
+.btn-light:hover {
+    background-color: darkgray;
+    // color: #fff;
+}
