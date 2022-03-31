@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AuthGuard } from './core/guard/auth.guard';
@@ -14,6 +14,11 @@ import { appRoutingModule } from './app.routing';
 
 import { NgxSpinnerModule } from "ngx-spinner";
 import { ToastrModule } from 'ngx-toastr';
+import { IconModule, IconSetModule, IconSetService } from '@coreui/icons-angular';
+import { AppAsideModule, AppBreadcrumbModule, AppHeaderModule, AppFooterModule, AppSidebarModule } from '@coreui/angular';
+import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
+import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
+import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 
 import { WidgetsModule } from './core/shared/widgets/widgets.module';
 import { WidgetServiceModule } from './core/shared/widgets/widgets-service.module';
@@ -30,6 +35,9 @@ import { AlertMessageService } from './core/shared/widgets/alert-message/alert-m
 import { EncryptDecryptService } from './core/shared/service/encrypt-decrypt.service';
 import { FacebookLoginProvider, GoogleLoginProvider, SocialLoginModule } from 'angularx-social-login';
 
+const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
+    suppressScrollX: true
+};
 @NgModule({
     declarations: [
         AppComponent,
@@ -58,8 +66,16 @@ import { FacebookLoginProvider, GoogleLoginProvider, SocialLoginModule } from 'a
             closeButton: true,
             timeOut: 8000, // 8 seconds
             progressBar: true,
-            positionClass :'toast-top-right'
-          }),
+            positionClass: 'toast-top-right'
+        }),
+        AppAsideModule,
+        AppBreadcrumbModule.forRoot(),
+        AppHeaderModule,
+        AppFooterModule,
+        AppSidebarModule,
+        PerfectScrollbarModule,
+        IconModule,
+        IconSetModule.forRoot()
     ],
 
     providers: [
@@ -68,6 +84,7 @@ import { FacebookLoginProvider, GoogleLoginProvider, SocialLoginModule } from 'a
         RetryInterceptorProvider,
         AlertMessageService,
         EncryptDecryptService,
+        IconSetService,
         {
             provide: 'SocialAuthServiceConfig',
             useValue: {
@@ -83,7 +100,7 @@ import { FacebookLoginProvider, GoogleLoginProvider, SocialLoginModule } from 'a
                     }
                 ]
             }
-        }
+        },
     ],
 
     bootstrap: [AppComponent],

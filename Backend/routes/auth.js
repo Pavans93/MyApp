@@ -22,9 +22,15 @@ router.post('/signup', async (req, res) => {
         return res.status(400).json({ message: 'Phone number already exists' });
     }
 
+    const passwordMatch = req.body.password.localeCompare(req.body.confirmPassword);
+    if (passwordMatch != 0) {
+        return res.status(400).json({ message: `Passwords don't match` });
+    }
+
     const salt = await bcrypt.genSalt(10);
     const hashPasswd = await bcrypt.hash(req.body.password, salt);
     const hashConfirmPasswd = await bcrypt.hash(req.body.confirmPassword, salt);
+    const hashPIN = await bcrypt.hash(req.body.pin, salt);
 
 
     let role = '';
@@ -41,7 +47,7 @@ router.post('/signup', async (req, res) => {
         phoneNumber: req.body.phoneNumber.trim(),
         password: hashPasswd,
         confirmPassword: hashConfirmPasswd,
-        pin: req.body.pin.trim(),
+        pin: hashPIN,
         role: role
     });
 
@@ -93,5 +99,32 @@ router.post('/login', async (req, res) => {
         }
     });
 });
+
+router.put('/resetPassword', async (req, res) => {
+
+    const user = await User.findOne({ phoneNumber: req.body.phoneNumber });
+    if (!user) {
+        return res.status(400).json({ message: 'Phone number is not registered' });
+    }
+
+    const passwordMatch = req.body.password.localeCompare(req.body.confirmPassword);
+    if (passwordMatch != 0) {
+        return res.status(400).json({ message: `Passwords don't match` });
+    }
+
+    const prevPasswd = await bcrypt.compare(req.body.password, user.password);
+    if (prevPasswd) {
+        return res.status(400).json({ message: `Password shouldn't be a previous password` });
+    }
+
+    const salt = await bcrypt.genSalt(10);
+    const hashPassword = await bcrypt.hash(req.body.password, salt);
+    const hashConfirmPassword = await bcrypt.hash(req.body.confirmPassword, salt);
+
+    const updatedPassword = await User.findOneAndUpdate({ phoneNumber: req.body.phoneNumber }, { password: hashPassword, confirmPassword: hashConfirmPassword }, { new: true });
+
+    return res.status(200).json({ message: 'Password reset successful' });
+});
+
 
 module.exports = router;

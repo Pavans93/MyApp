@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
         this.initForm();
     }
 
-    ngOnInit() {
+    ngOnInit(): void {
         this.redirectService.setRedirectUrl();
     }
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SessionIdleService } from '../../core/shared/service/session-idle.service';
+import { navItems } from './nav';
 
 @Component({
     selector: 'app-container',
@@ -7,26 +8,13 @@ import { SessionIdleService } from '../../core/shared/service/session-idle.servi
     styleUrls: ['./container.component.scss']
 })
 
-export class ContainerComponent implements OnInit {
+export class ContainerComponent {
 
-    toggleLeftBar: boolean = true;
-    toggleRightBar: boolean = false;
-
-    constructor(
-        private sessionIdleService: SessionIdleService
-    ) { }
-
-    ngOnInit(): void {
-        // Session Idle to be fixed
-        // this.sessionIdleService.checkSessionIdle();
-    }
-
-    toggleLeftNav = () => {
-        this.toggleLeftBar = !this.toggleLeftBar;
-    }
-
-    toggleRightNav = () => {
-        this.toggleRightBar = !this.toggleRightBar;
+    public sidebarMinimized = false;
+    public navItems = navItems;
+  
+    toggleMinimize(e: any) {
+      this.sidebarMinimized = e;
     }
 
 }
