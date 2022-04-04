@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { AlertMessageService } from 'src/app/core/shared/widgets/alert-message/alert-message.service';
 import { LoaderService } from '../../../core/shared/service/loader.service';
 
 import * as data from '../../../../assets/json/customer-tabs.json';
@@ -20,7 +19,6 @@ export class CustomerMenuComponent implements OnInit {
     constructor(
         private router: Router,
         private loader: LoaderService,
-        private alert: AlertMessageService,
     ) { }
 
     ngOnInit() {

@@ -12,9 +12,9 @@ export class ContainerComponent {
 
     public sidebarMinimized = false;
     public navItems = navItems;
-  
+
     toggleMinimize(e: any) {
-      this.sidebarMinimized = e;
+        this.sidebarMinimized = e;
     }
 
 }

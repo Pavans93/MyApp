@@ -5,7 +5,6 @@ import { LoginComponent } from './login/login.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { TwoFactorAuthComponent } from './two-factor-auth/two-factor-auth.component';
 import { SignupComponent } from './signup/signup.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 
 export const routes: Routes = [
     {
@@ -31,11 +30,6 @@ export const routes: Routes = [
         path: 'forgot-password',
         component: ForgotPasswordComponent,
         data: { title : 'Forgot Password' }
-    },
-    {
-        path: 'dashboard-test',
-        component: DashboardComponent,
-        data: { title : 'Dashboard-test' }
     },
 ];
 

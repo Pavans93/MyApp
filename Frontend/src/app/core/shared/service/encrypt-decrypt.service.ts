@@ -6,14 +6,14 @@ import CryptoES from 'crypto-es';
 })
 
 export class EncryptDecryptService {
+
     constructor() { }
-    //The set method is used for encrypt the value.
+
     set(keys: any, value: any) {
         var key = CryptoES.enc.Utf8.parse(keys);
         var iv = CryptoES.enc.Utf8.parse(keys);
         var encrypted = CryptoES.AES.encrypt(CryptoES.enc.Utf8.parse(value.toString()), key,
             {
-                // keySize: 128 / 8,
                 iv: iv,
                 mode: CryptoES.mode.CBC,
                 padding: CryptoES.pad.Pkcs7
@@ -21,13 +21,11 @@ export class EncryptDecryptService {
         return encrypted.toString();
     }
 
-    //The get method is used for decrypt the value.
     get(keys: any, value: any) {
         var key = CryptoES.enc.Utf8.parse(keys);
         var iv = CryptoES.enc.Utf8.parse(keys);
         var decrypted = CryptoES.AES.decrypt(value, key,
             {
-                // keySize: 128 / 8,
                 iv: iv,
                 mode: CryptoES.mode.CBC,
                 padding: CryptoES.pad.Pkcs7

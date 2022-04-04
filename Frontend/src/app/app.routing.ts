@@ -21,16 +21,8 @@ export const routes: Routes = [
                 loadChildren: () => import('./pages/dashboard/dashboard.module').then(m => m.DashboardModule),
             },
             {
-                path: 'user',
-                loadChildren: () => import('./pages/user/user.module').then(m => m.UserModule)
-            },
-            {
                 path: 'customer',
                 loadChildren: () => import('./pages/customer/customer.module').then(m => m.CustomerModule)
-            },
-            {
-                path: 'setup',
-                loadChildren: () => import('./pages/setup/setup.module').then(m => m.SetupModule)
             },
         ]
     },

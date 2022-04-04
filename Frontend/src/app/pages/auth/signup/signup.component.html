@@ -12,11 +12,13 @@
                     </div>
 
                     <div class="form-group form-outline mb-4">
-                        <input type="text" id="firstName" class="form-control" placeholder=" " formControlName="firstName"
-                            autocomplete="off" [ngClass]="{'border-danger': (submitted && f['firstName'].errors)}" />
+                        <input type="text" id="firstName" class="form-control" placeholder=" "
+                            formControlName="firstName" autocomplete="off"
+                            [ngClass]="{'border-danger': (submitted && f['firstName'].errors)}" />
                         <label class="form-label" for="firstName">First Name</label>
                         <i class="fas fa-user"></i>
-                        <div *ngIf="(submitted || f['firstName'].touched) && f['firstName'].errors" class="error-message">
+                        <div *ngIf="(submitted || f['firstName'].touched) && f['firstName'].errors"
+                            class="error-message">
                             <div *ngIf="f['firstName'].errors && f['firstName'].errors['required']">
                                 * First Name is required
                             </div>
@@ -59,21 +61,25 @@
                     </div>
 
                     <div class="form-group form-outline mb-4">
-                        <input type="text" id="phoneNumber" class="form-control" placeholder=" " formControlName="phoneNumber"
-                            autocomplete="off" [ngClass]="{'border-danger': (submitted && f['phoneNumber'].errors)}" />
+                        <input type="text" id="phoneNumber" class="form-control" placeholder=" "
+                            formControlName="phoneNumber" autocomplete="off"
+                            [ngClass]="{'border-danger': (submitted && f['phoneNumber'].errors)}" />
                         <label class="form-label" for="phoneNumber">Phone Number</label>
                         <i class="fas fa-phone"></i>
-                        <div *ngIf="(submitted || f['phoneNumber'].touched) && f['phoneNumber'].errors" class="error-message">
+                        <div *ngIf="(submitted || f['phoneNumber'].touched) && f['phoneNumber'].errors"
+                            class="error-message">
                             <div *ngIf="f['phoneNumber'].errors && f['phoneNumber'].errors['required']">
                                 * Phone number is required
                             </div>
                             <div *ngIf="f['phoneNumber'].errors && f['phoneNumber'].errors['invalid']">
                                 * Please enter valid phone number
                             </div>
-                            <div *ngIf="f['phoneNumber'].errors && !f['phoneNumber'].errors['invalid'] && (f['phoneNumber'].errors['minlength'])">
+                            <div
+                                *ngIf="f['phoneNumber'].errors && !f['phoneNumber'].errors['invalid'] && (f['phoneNumber'].errors['minlength'])">
                                 * Phone number should be of minimum 10 digits
                             </div>
-                            <div *ngIf="f['phoneNumber'].errors  && !f['phoneNumber'].errors['invalid'] && (f['phoneNumber'].errors['maxlength'])">
+                            <div
+                                *ngIf="f['phoneNumber'].errors  && !f['phoneNumber'].errors['invalid'] && (f['phoneNumber'].errors['maxlength'])">
                                 * Phone number should be of maximum 10 digits
                             </div>
                         </div>
@@ -127,10 +133,12 @@
                             <div *ngIf="f['pin'].errors && (f['pin'].errors['invalid'])">
                                 * PIN accepts only digits
                             </div>
-                            <div *ngIf="f['pin'].errors && !f['pin'].errors['invalid'] && (f['pin'].errors['minlength'])">
+                            <div
+                                *ngIf="f['pin'].errors && !f['pin'].errors['invalid'] && (f['pin'].errors['minlength'])">
                                 * PIN should be of minimum 4 digits
                             </div>
-                            <div *ngIf="f['pin'].errors && !f['pin'].errors['invalid'] && (f['pin'].errors['maxlength'])">
+                            <div
+                                *ngIf="f['pin'].errors && !f['pin'].errors['invalid'] && (f['pin'].errors['maxlength'])">
                                 * PIN should be of maximum 6 digits
                             </div>
                         </div>

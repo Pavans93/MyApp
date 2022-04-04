@@ -5,7 +5,6 @@ import { FormsModule } from '@angular/forms';
 import { DashboardRoutingModule } from './dashboard.routing';
 
 import { WidgetsModule } from '../../core/shared/widgets/widgets.module';
-import { WidgetServiceModule } from '../../core/shared/widgets/widgets-service.module';
 
 import { DashboardContentComponent } from './dashboard-content/dashboard-content.component';
 
@@ -15,7 +14,6 @@ import { DashboardContentComponent } from './dashboard-content/dashboard-content
         FormsModule,
         DashboardRoutingModule,
         WidgetsModule,
-        WidgetServiceModule,
     ],
 
     declarations: [

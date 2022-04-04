@@ -1,6 +1,8 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../core/service/auth.service';
+import { navItems } from '../../container/nav';
+
 
 @Component({
     selector: 'app-header1',
@@ -28,6 +30,13 @@ export class HeaderComponent implements OnInit {
         if (confirm("Are you sure you want to logout?") === true) {  //change to alert modal popup 
             this.authService.logout();
         }
+    }
+
+    public sidebarMinimized = false;
+    public navItems = navItems;
+
+    toggleMinimize(e: any) {
+        this.sidebarMinimized = e;
     }
 
 }

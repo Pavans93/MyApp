@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { HttpService } from '../../../core/shared/http/http.service';
 import { AuthService } from '../../../core/service/auth.service';
@@ -62,16 +62,6 @@ export class TwoFactorAuthComponent implements OnInit {
         if (this.mfaForm.invalid) {
             return;
         }
-        // if (this.f['pin'].value === '1234') {
-        //     this.token = 'success';
-        //     this.redirectUrl = '/dashboard';
-        //     this.authService.setRedirectUrl(this.redirectUrl);
-        //     this.authService.auth(this.token);
-        // } else {
-        //     this.isError = true;
-        //     this.errorMessage = 'Invalid PIN';
-        // }
-
         if (localStorage.getItem('registerdUsers')) {
             this.registerdUsers = JSON.parse(localStorage.getItem('registerdUsers') || '{}');
             let found = this.registerdUsers.some((el: any) => {
@@ -82,13 +72,11 @@ export class TwoFactorAuthComponent implements OnInit {
                 this.errorMessage = 'Invalid PIN';
             } else {
                 this.token = 'success';
-            this.redirectUrl = '/dashboard-test';
-            this.authService.setRedirectUrl(this.redirectUrl);
-            this.authService.auth(this.token);
+                this.redirectUrl = '/dashboard-test';
+                this.authService.setRedirectUrl(this.redirectUrl);
+                this.authService.auth(this.token);
             }
         }
-
-
     }
 
     resetForm() {

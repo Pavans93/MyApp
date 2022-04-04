@@ -31,13 +31,11 @@
                             "src/assets"
                         ],
                         "styles": [
-                            "node_modules/bootstrap/dist/css/bootstrap.min.css",
-                            "node_modules/c3/c3.min.css",
-                            "node_modules/ngx-toastr/toastr.css",
                             "node_modules/sweetalert2/src/sweetalert2.scss",
                             "node_modules/@coreui/icons/css/free.css",
                             "node_modules/simple-line-icons/dist/styles/simple-line-icons.css",
                             "node_modules/flag-icon-css/css/flag-icon.css",
+                            "node_modules/bootstrap/dist/css/bootstrap.min.css",
                             "src/styles.scss"
                         ],
                         "scripts": [
@@ -109,13 +107,11 @@
                             "src/assets"
                         ],
                         "styles": [
-                            "node_modules/bootstrap/dist/css/bootstrap.min.css",
-                            "node_modules/c3/c3.min.css",
-                            "node_modules/ngx-toastr/toastr.css",
                             "node_modules/sweetalert2/src/sweetalert2.scss",
                             "node_modules/@coreui/icons/css/free.css",
                             "node_modules/simple-line-icons/dist/styles/simple-line-icons.css",
                             "node_modules/flag-icon-css/css/flag-icon.css",
+                            "node_modules/bootstrap/dist/css/bootstrap.min.css",
                             "src/styles.scss"
                         ],
                         "scripts": [

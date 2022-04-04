@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-import { AlertMessageService } from 'src/app/core/shared/widgets/alert-message/alert-message.service';
 import { LoaderService } from '../../../core/shared/service/loader.service';
 
 @Component({
@@ -28,7 +27,6 @@ export class DashboardContentComponent implements OnInit {
 
     constructor(
         private loader: LoaderService,
-        private alert: AlertMessageService
     ) { }
 
     ngOnInit(): void {

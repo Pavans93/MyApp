@@ -9,15 +9,15 @@ import Swal from 'sweetalert2';
 
 export class AlertService {
 
-    CONFIG : any = {
-       SUCCESS : 'success',
-       ERROR : 'error',
-       TOAST_POSITION : 'top-right',
-       TOAST_TIMER : 5000,
-       TOAST_SUCCESS_BG : '#008000',
-       TOAST_ERROR_BG : '#FF0000',
-       TOAST_TEXT_COLOR : '#ffffff',
-       TOAST_WIDTH : '25rem'
+    CONFIG: any = {
+        SUCCESS: 'success',
+        ERROR: 'error',
+        TOAST_POSITION: 'top-right',
+        TOAST_TIMER: 5000,
+        TOAST_SUCCESS_BG: '#008000',
+        TOAST_ERROR_BG: '#FF0000',
+        TOAST_TEXT_COLOR: '#ffffff',
+        TOAST_WIDTH: '25rem'
     }
 
     constructor(
@@ -30,14 +30,14 @@ export class AlertService {
             position: this.CONFIG.TOAST_POSITION,
             showConfirmButton: false,
             icon: this.CONFIG.SUCCESS,
-            timerProgressBar:true,
+            timerProgressBar: true,
             timer: this.CONFIG.TOAST_TIMER,
             title: title,
             showCloseButton: true,
             background: this.CONFIG.TOAST_SUCCESS_BG,
             color: this.CONFIG.TOAST_TEXT_COLOR,
-            width: this.CONFIG.TOAST_WIDTH          
-          });
+            width: this.CONFIG.TOAST_WIDTH
+        });
     }
 
     toastError(title: string) {
@@ -46,14 +46,14 @@ export class AlertService {
             position: this.CONFIG.TOAST_POSITION,
             showConfirmButton: false,
             icon: this.CONFIG.ERROR,
-            timerProgressBar:true,
+            timerProgressBar: true,
             timer: this.CONFIG.TOAST_TIMER,
             title: title,
             showCloseButton: true,
             background: this.CONFIG.TOAST_ERROR_BG,
             color: this.CONFIG.TOAST_TEXT_COLOR,
-            width: this.CONFIG.TOAST_WIDTH          
-          });
+            width: this.CONFIG.TOAST_WIDTH
+        });
     }
 
     alertSuccess(title: any, text: any, confirmBtnText: string, routeLink?: any) {
@@ -72,7 +72,7 @@ export class AlertService {
             }
         }).then((result) => {
             if (result.isConfirmed) {
-                if(routeLink){
+                if (routeLink) {
                     this.router.navigate([routeLink]);
                 }
             }
@@ -95,7 +95,7 @@ export class AlertService {
             }
         }).then((result) => {
             if (result.isConfirmed) {
-                if(routeLink){
+                if (routeLink) {
                     this.router.navigate([routeLink]);
                 }
             }

@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import * as data from '../../../../assets/json/left-nav-items.json';
+import { navItems } from '../../container/nav';
 
 @Component({
     selector: 'app-left-nav-bar',
@@ -9,9 +10,16 @@ import * as data from '../../../../assets/json/left-nav-items.json';
 
 export class LeftNavBarComponent implements OnInit {
 
-    navItems: any = (data as any).default;
+    // navItems: any = (data as any).default;
 
     @Input() toggleLeftBar: boolean;
+
+    public sidebarMinimized = false;
+    public navItems = navItems;
+
+    toggleMinimize(e: any) {
+        this.sidebarMinimized = e;
+    }
 
     constructor() { }
 

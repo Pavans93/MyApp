@@ -21,7 +21,7 @@ export class LoaderService {
     }
 
     hideLoader() {
-        this.spinner.hide()
+        this.spinner.hide();
     }
 
 }

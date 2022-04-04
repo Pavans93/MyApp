@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AuthGuard } from './core/guard/auth.guard';
@@ -19,21 +18,16 @@ import { AppAsideModule, AppBreadcrumbModule, AppHeaderModule, AppFooterModule, 
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
+import { FacebookLoginProvider, GoogleLoginProvider, SocialLoginModule } from 'angularx-social-login';
 
 import { WidgetsModule } from './core/shared/widgets/widgets.module';
-import { WidgetServiceModule } from './core/shared/widgets/widgets-service.module';
 
 import { HeaderComponent } from './pages/common/header/header.component';
 import { FooterComponent } from './pages/common/footer/footer.component';
 import { LeftNavBarComponent } from './pages/common/left-nav-bar/left-nav-bar.component';
-import { RightSideBarComponent } from './pages/common/right-side-bar/right-side-bar.component';
 import { ContainerComponent } from './pages/container/container.component';
 import { PageNotFoundComponent } from './pages/common/page-not-found/page-not-found.component';
-import { LogoComponent } from './pages/common/logo/logo.component';
-import { AlertMessageComponent } from './core/shared/widgets/alert-message/alert-message.component';
-import { AlertMessageService } from './core/shared/widgets/alert-message/alert-message.service';
 import { EncryptDecryptService } from './core/shared/service/encrypt-decrypt.service';
-import { FacebookLoginProvider, GoogleLoginProvider, SocialLoginModule } from 'angularx-social-login';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     suppressScrollX: true
@@ -45,10 +39,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
         HeaderComponent,
         FooterComponent,
         LeftNavBarComponent,
-        RightSideBarComponent,
         ContainerComponent,
-        LogoComponent,
-        AlertMessageComponent,
     ],
 
     imports: [
@@ -60,14 +51,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
         ReactiveFormsModule,
         NgxSpinnerModule,
         WidgetsModule,
-        WidgetServiceModule,
         SocialLoginModule,
-        ToastrModule.forRoot({
-            closeButton: true,
-            timeOut: 8000, // 8 seconds
-            progressBar: true,
-            positionClass: 'toast-top-right'
-        }),
         AppAsideModule,
         AppBreadcrumbModule.forRoot(),
         AppHeaderModule,
@@ -75,32 +59,40 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
         AppSidebarModule,
         PerfectScrollbarModule,
         IconModule,
-        IconSetModule.forRoot()
+        IconSetModule.forRoot(),
+       
+        ToastrModule.forRoot({
+            closeButton: true,
+            timeOut: 10000,
+            progressBar: true,
+            positionClass: 'toast-top-right'
+        }),
     ],
 
     providers: [
         AuthGuard,
         CustomHttpInterceptorProvider,
         RetryInterceptorProvider,
-        AlertMessageService,
         EncryptDecryptService,
         IconSetService,
+        
         {
             provide: 'SocialAuthServiceConfig',
             useValue: {
-                autoLogin: true, //keeps the user signed in
+                autoLogin: true,
                 providers: [
                     {
                         id: GoogleLoginProvider.PROVIDER_ID,
-                        provider: new GoogleLoginProvider('747874110030-qtahv0ljskechp5iecu8660bdmr4qhrf.apps.googleusercontent.com') // your client id
+                        provider: new GoogleLoginProvider('747874110030-qtahv0ljskechp5iecu8660bdmr4qhrf.apps.googleusercontent.com')
                     },
                     {
                         id: FacebookLoginProvider.PROVIDER_ID,
-                        provider: new FacebookLoginProvider('48b77ace8aa612658e38060908de43ed') // your client id
+                        provider: new FacebookLoginProvider('48b77ace8aa612658e38060908de43ed')
                     }
                 ]
             }
         },
+
     ],
 
     bootstrap: [AppComponent],
