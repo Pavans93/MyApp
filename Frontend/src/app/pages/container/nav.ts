@@ -3,41 +3,40 @@ import { INavData } from '@coreui/angular';
 export const navItems: INavData[] = [
   {
     name: 'All Products',
-    url: '/home',
+    url: 'user/products',
     icon: 'fab fa-product-hunt',
   },
   {
     name: 'Mobiles',
-    url: '/mobile',
+    url: 'user/mobiles',
     icon: 'fa fa-mobile',
     badge: {
       variant: 'info',
       text: 'NEW'
-    }
+    },
   },
   {
     name: 'Laptops',
-    url: '/laptop',
+    url: 'user/laptops',
+    icon: 'fa fa-laptop',
+  },
+  {
+    name: 'Television',
+    url: 'user/television',
     icon: 'fa fa-laptop',
   },
   {
     name: 'Cameras',
-    url: '/camera',
+    url: 'user/cameras',
     icon: 'fa fa-camera',
   },
   {
     name: 'Watches',
-    url: '/watch',
+    url: 'user/watches',
     icon: 'fa fa-clock-o',
     badge: {
       variant: 'info',
       text: 'NEW'
     }
-  },
-  {
-    name: 'Logout',
-    icon: 'fa fa-sign-out',
-    url: '/theme/typography',
-    // class: 'fixed-bottom'
-  },
+  }
 ];

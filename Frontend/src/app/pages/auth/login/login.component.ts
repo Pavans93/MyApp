@@ -77,7 +77,7 @@ export class LoginComponent implements OnInit {
                 next: (res: any) => {
                     this.loader.hideLoader();
                     this.token = res.body.data.authToken;
-                    this.redirectUrl = '/dashboard';
+                    this.redirectUrl = '/user/products';
                     this.authService.setRedirectUrl(this.redirectUrl);
                     this.authService.auth(this.token);
                 },
@@ -103,7 +103,7 @@ export class LoginComponent implements OnInit {
             .then(
                 () => {
                     this.token = 'success';
-                    this.redirectUrl = '/dashboard-test';
+                    this.redirectUrl = '/user/products';
                     this.authService.setRedirectUrl(this.redirectUrl);
                     this.authService.auth(this.token);
                 }

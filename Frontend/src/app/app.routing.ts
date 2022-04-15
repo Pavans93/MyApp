@@ -17,12 +17,12 @@ export const routes: Routes = [
         canActivate: [AuthGuard, SocialGuard],
         children: [
             {
-                path: 'dashboard',
-                loadChildren: () => import('./pages/dashboard/dashboard.module').then(m => m.DashboardModule),
+                path: 'admin',
+                loadChildren: () => import('./pages/admin/admin.module').then(m => m.AdminModule),
             },
             {
-                path: 'customer',
-                loadChildren: () => import('./pages/customer/customer.module').then(m => m.CustomerModule)
+                path: 'user',
+                loadChildren: () => import('./pages/user/user.module').then(m => m.UserModule)
             },
         ]
     },
