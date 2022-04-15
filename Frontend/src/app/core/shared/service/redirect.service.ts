@@ -13,7 +13,7 @@ export class RedirectService {
     ) { }
 
     setRedirectUrl() {
-        const redirectUrl = '/user/products';
+        const redirectUrl = 'user/products';
         if (this.cookieService.getCookie('authToken')) {
             this.router.navigate([redirectUrl]);
         }

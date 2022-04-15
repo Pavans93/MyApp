@@ -8,7 +8,7 @@ export const navItems: INavData[] = [
   },
   {
     name: 'Mobiles',
-    url: 'user/mobiles',
+    url: 'user/products/mobiles',
     icon: 'fa fa-mobile',
     badge: {
       variant: 'info',
@@ -17,22 +17,22 @@ export const navItems: INavData[] = [
   },
   {
     name: 'Laptops',
-    url: 'user/laptops',
+    url: 'user/products/laptops',
     icon: 'fa fa-laptop',
   },
   {
     name: 'Television',
-    url: 'user/television',
+    url: 'user/products/television',
     icon: 'fa fa-laptop',
   },
   {
     name: 'Cameras',
-    url: 'user/cameras',
+    url: 'user/products/cameras',
     icon: 'fa fa-camera',
   },
   {
     name: 'Watches',
-    url: 'user/watches',
+    url: 'user/products/watches',
     icon: 'fa fa-clock-o',
     badge: {
       variant: 'info',
