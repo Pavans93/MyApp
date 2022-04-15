@@ -29,13 +29,13 @@ app.use(cors());
 app.use(bodyParser.json());
 
 //routes
-const authRoute = require('./routes/auth');
+const authRoute = require('./controller/auth');
 app.use('/api/user', authRoute);
 
-const phoneAuthRoute = require('./routes/phoneauth');
+const phoneAuthRoute = require('./controller/phoneauth');
 app.use('/api/auth', phoneAuthRoute);
 
-const postRoute = require('./routes/post');
+const postRoute = require('./controller/post');
 app.use('/api/post', postRoute);
 
 app.use(express.json());

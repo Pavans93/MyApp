@@ -2,8 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
-import { ChartsComponent } from './charts/charts.component';
-
 @NgModule({
   imports: [
     CommonModule,
@@ -11,11 +9,9 @@ import { ChartsComponent } from './charts/charts.component';
   ],
 
   declarations: [
-    ChartsComponent
   ],
 
   exports: [
-    ChartsComponent,
   ]
 })
 

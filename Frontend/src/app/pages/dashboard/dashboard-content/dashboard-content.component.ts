@@ -10,19 +10,63 @@ import { LoaderService } from '../../../core/shared/service/loader.service';
 
 export class DashboardContentComponent implements OnInit {
 
-    chartData: any = [
+    products: any[] = [
         {
-            key: 'Books',
-            value: 30,
+            name: 'Apple Iphone 13',
+            color: 'Black',
+            rating : '4/5',
+            price : '9,999/-',
+            image: 'assets/img/download (1).jpg'
         },
         {
-            key: 'Journals',
-            value: 30,
+            name: 'Apple Iphone 13',
+            color: 'Black',
+            rating : '4/5',
+            price : '9,999/-',
+            image: 'assets/img/download (1).jpg'
         },
         {
-            key: 'Periodocals',
-            value: 40,
-        }
+            name: 'Apple Iphone 13',
+            color: 'Black',
+            rating : '4/5',
+            price : '9,999/-',
+            image: 'assets/img/download (1).jpg'
+        },
+        {
+            name: 'Apple Iphone 13',
+            color: 'Black',
+            rating : '4/5',
+            price : '9,999/-',
+            image: 'assets/img/download (1).jpg'
+        },
+        {
+            name: 'Apple Iphone 13',
+            color: 'Black',
+            rating : '4/5',
+            price : '9,999/-',
+            image: 'assets/img/download (1).jpg'
+        },
+        {
+            name: 'Apple Iphone 13',
+            color: 'Black',
+            rating : '4/5',
+            price : '9,999/-',
+            image: 'assets/img/download (1).jpg'
+        },
+        {
+            name: 'Apple Iphone 13',
+            color: 'Black',
+            rating : '4/5',
+            price : '9,999/-',
+            image: 'assets/img/download (1).jpg'
+        },
+        {
+            name: 'Apple Iphone 13',
+            color: 'Black',
+            rating : '4/5',
+            price : '9,999/-',
+            image: 'assets/img/download (1).jpg'
+        },
     ];
 
     constructor(

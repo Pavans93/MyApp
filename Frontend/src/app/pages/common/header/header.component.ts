@@ -5,7 +5,7 @@ import { navItems } from '../../container/nav';
 
 
 @Component({
-    selector: 'app-header1',
+    selector: 'my-app-header',
     templateUrl: './header.component.html',
     styleUrls: ['./header.component.scss']
 })

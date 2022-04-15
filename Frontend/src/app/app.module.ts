@@ -12,7 +12,6 @@ import { RetryInterceptorProvider } from './core/shared/http-interceptor/retry/r
 import { appRoutingModule } from './app.routing';
 
 import { NgxSpinnerModule } from "ngx-spinner";
-import { ToastrModule } from 'ngx-toastr';
 import { IconModule, IconSetModule, IconSetService } from '@coreui/icons-angular';
 import { AppAsideModule, AppBreadcrumbModule, AppHeaderModule, AppFooterModule, AppSidebarModule } from '@coreui/angular';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
@@ -60,13 +59,6 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
         PerfectScrollbarModule,
         IconModule,
         IconSetModule.forRoot(),
-       
-        ToastrModule.forRoot({
-            closeButton: true,
-            timeOut: 10000,
-            progressBar: true,
-            positionClass: 'toast-top-right'
-        }),
     ],
 
     providers: [
