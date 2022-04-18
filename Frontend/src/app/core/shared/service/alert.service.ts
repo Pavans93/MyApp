@@ -12,6 +12,7 @@ export class AlertService {
     CONFIG: any = {
         SUCCESS: 'success',
         ERROR: 'error',
+        INFO: 'info',
         TOAST_POSITION: 'top-right',
         TOAST_TIMER: 5000,
         TOAST_SUCCESS_BG: '#008000',
@@ -98,6 +99,29 @@ export class AlertService {
                 if (routeLink) {
                     this.router.navigate([routeLink]);
                 }
+            }
+        });
+    }
+
+    alertInfo(title: any, text: any, confirmBtnText: string, cancelBtnText: string, routeLink?: any) {
+        Swal.fire({
+            title: title,
+            text: text,
+            confirmButtonText: confirmBtnText,
+            showCancelButton: true,
+            backdrop: true,
+            cancelButtonText: cancelBtnText,
+            allowOutsideClick: true,
+            allowEscapeKey: true,
+            customClass: {
+                popup: 'alertPopup',
+                title: 'alertInfoTitle',
+                htmlContainer: 'alertText',
+                confirmButton: 'alertInfoBtn'
+            }
+        }).then((result): any => {
+            if (result.isConfirmed) {
+                this.router.navigate([routeLink]);
             }
         });
     }

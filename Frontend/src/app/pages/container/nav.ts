@@ -3,7 +3,7 @@ import { INavData } from '@coreui/angular';
 export const navItems: INavData[] = [
   {
     name: 'All Products',
-    url: 'user/products/all',
+    url: 'user/products',
     icon: 'fab fa-product-hunt',
   },
   {

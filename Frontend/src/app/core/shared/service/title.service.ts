@@ -17,10 +17,12 @@ export class TitleService {
     ) { }
 
     setTitle = () => {
+        debugger
         this.router.events
             .pipe(
                 filter((event: any) => event instanceof NavigationEnd),
                 map(() => {
+                    debugger
                     let route: ActivatedRoute = this.router.routerState.root;
                     let routeTitle = '';
                     while (route!.firstChild) {
@@ -34,7 +36,7 @@ export class TitleService {
             )
             .subscribe((title: string) => {
                 if (title) {
-                    this.titleService.setTitle(`MyApp - ${title}`);
+                    this.titleService.setTitle(`MyCart - ${title}`);
                 }
             });
     }

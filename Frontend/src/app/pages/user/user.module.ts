@@ -6,7 +6,6 @@ import { UserRoutingModule } from './user.routing';
 
 import { WidgetsModule } from '../../core/shared/widgets/widgets.module';
 
-import { ProductsComponent } from './products/products.component';
 import { CartComponent } from './cart/cart.component';
 import { AddressComponent } from './address/address.component';
 import { OrderDetailsComponent } from './order-details/order-details.component';
@@ -23,7 +22,6 @@ import { ProfileComponent } from './profile/profile.component';
     ],
 
     declarations: [
-        ProductsComponent,
         CartComponent,
         AddressComponent,
         OrderDetailsComponent,

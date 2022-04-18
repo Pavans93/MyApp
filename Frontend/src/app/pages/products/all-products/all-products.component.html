@@ -30,20 +30,21 @@
     
     <div class="row" *ngFor="let category of categories">
         <div class="col-sm-12">
-            <p class="fw-bold text-uppercase">{{category}} <a class="float-end text-primary" [routerLink]="['/mobiles']" routerLinkActive="router-link-active" > See More</a></p>
+            <p class="fw-bold text-uppercase">{{category}} <a class="float-end text-primary" [routerLink]="category" >See More</a></p>
         </div>
         <hr/>
-        <div class="col-sm-3" *ngFor="let item of products">
+        <div class="col-sm-3" *ngFor="let item of products; let i= index">
             <div class="shadow-lg p-1 mt-2 mb-4 bg-body rounded" *ngIf="category === item.category">
                 <img [src]="item.image" class="card-img-top" alt="...">
                 <div class="card-body">
                     <div class="card-text mb-2">
-                        <a class="font-weight-bold d-block" href="#">{{item.name}}</a>
+                        <a class="font-weight-bold d-block" [routerLink]="['product-details']">{{item.name}}</a>
                         <span class="d-block">{{item.color}}</span>
                         <span class="d-block">{{item.rating}}</span>
                         <span class="font-weight-bold d-block">Rs. {{item.price}}</span>
                     </div>
-                    <a class="btn btn-primary d-block mb-1"><i class="fa fa-cart-plus p-1"></i>Add to cart</a>
+                    <a class="btn btn-primary d-block mb-1" (click)="onAddToCart($event, item)" *ngIf="!cartObj[item.productId]"><i class="fa fa-cart-plus p-1"></i>Add to cart</a>
+                    <a class="btn btn-primary d-block mb-1" [routerLink]="['/user/cart']" *ngIf="cartObj[item.productId]"><i class="fa fa-cart-plus p-1"></i>Go to cart</a>
                 </div>
             </div>
         </div>

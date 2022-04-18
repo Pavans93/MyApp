@@ -7,13 +7,8 @@ import { ProductRoutingModule } from './products.routing';
 import { WidgetsModule } from '../../core/shared/widgets/widgets.module';
 
 import { ProductsComponent } from './products/products.component';
-import { MobilesComponent } from './mobiles/mobiles.component';
-import { LaptopsComponent } from './laptops/laptops.component';
-import { TelevisionComponent } from './television/television.component';
-import { CamerasComponent } from './cameras/cameras.component';
-import { WatchesComponent } from './watches/watches.component';
-import { ProductDescriptionComponent } from './product-description/product-description.component';
-import { CartComponent } from './cart/cart.component';
+import { AllProductsComponent } from './all-products/all-products.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
 
 @NgModule({
     imports: [
@@ -25,13 +20,8 @@ import { CartComponent } from './cart/cart.component';
 
     declarations: [
         ProductsComponent,
-        MobilesComponent,
-        LaptopsComponent,
-        TelevisionComponent,
-        CamerasComponent,
-        WatchesComponent,
-        ProductDescriptionComponent,
-        CartComponent,
+        ProductDetailsComponent,
+        AllProductsComponent,
     ],
 })
 

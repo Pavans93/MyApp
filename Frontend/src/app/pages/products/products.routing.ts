@@ -2,59 +2,55 @@ import { Routes, RouterModule } from '@angular/router';
 import { ModuleWithProviders, NgModule } from '@angular/core';
 
 import { ProductsComponent } from './products/products.component';
-import { MobilesComponent } from './mobiles/mobiles.component';
-import { LaptopsComponent } from './laptops/laptops.component';
-import { TelevisionComponent } from './television/television.component';
-import { CamerasComponent } from './cameras/cameras.component';
-import { WatchesComponent } from './watches/watches.component';
-import { CartComponent } from './cart/cart.component';
+import { AllProductsComponent } from './all-products/all-products.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
 
 export const routes: Routes = [
     {
         path: '',
-        component: ProductsComponent,
-        data: { title : 'Products' }
+        component: AllProductsComponent,
+        data: { title: 'All Products' },
     },
     {
-        path: 'all',
-        component: ProductsComponent,
-        data: { title : 'All Products' }
+        path: 'product-details',
+        component: ProductDetailsComponent,
+        data: { title: 'Product Details' },
     },
     {
         path: 'mobiles',
-        component: MobilesComponent,
-        data: { title : 'Mobiles' }
+        component: ProductsComponent,
+        data: { title: 'Mobiles' },
     },
     {
         path: 'laptops',
-        component: LaptopsComponent,
-        data: { title : 'Laptops' }
+        component: ProductsComponent,
+        data: { title: 'Laptops' },
     },
     {
         path: 'television',
-        component: TelevisionComponent,
-        data: { title : 'Television' }
+        component: ProductsComponent,
+        data: { title: 'Television' },
     },
     {
         path: 'cameras',
-        component: CamerasComponent,
-        data: { title : 'Cameras' }
+        component: ProductsComponent,
+        data: { title: 'Cameras' },
     },
     {
         path: 'watches',
-        component: WatchesComponent,
-        data: { title : 'Watches' }
+        component: ProductsComponent,
+        data: { title: 'Watches' },
     },
-    {
-        path: 'cart',
-        component: CartComponent,
-        data: { title : 'Cart' }
-    },
-];
+   
 
+];
 @NgModule({
     imports: [RouterModule.forChild(routes)],
     exports: [RouterModule]
 })
 
 export class ProductRoutingModule { }
+
+function extract(arg0: string): any {
+    throw new Error('Function not implemented.');
+}
