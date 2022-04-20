@@ -11,6 +11,7 @@ import { AddressComponent } from './address/address.component';
 import { OrderDetailsComponent } from './order-details/order-details.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { ProfileComponent } from './profile/profile.component';
+import { AddEditAddressComponent } from './add-edit-address/add-edit-address.component';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { ProfileComponent } from './profile/profile.component';
         OrderDetailsComponent,
         CheckoutComponent,
         ProfileComponent,
+        AddEditAddressComponent,
     ],
 })
 
