@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AlertService } from 'src/app/core/shared/service/alert.service';
 
 @Component({
   selector: 'app-checkout',
@@ -66,7 +68,9 @@ export class CheckoutComponent implements OnInit {
 
   constructor(
     // private dataService: DataService,
-    // private router: Router
+    private router: Router,
+    private alertService: AlertService,
+
   ) { }
 
   ngOnInit(): void {
@@ -82,6 +86,11 @@ export class CheckoutComponent implements OnInit {
 
   goToProductDetails(){
     // this.router.navigate(['user/products/product-details']);
+  }
+
+  confirmOrder(){
+    this.alertService.alertSuccess('Congrats!!!', `Your order has been placed successfully!!!`, 'SHOP MORE', 'user/products');
+
   }
 
 }
